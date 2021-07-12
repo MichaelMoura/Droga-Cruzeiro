@@ -1,5 +1,3 @@
-# Droga-Cruzeiro
-
 # Olá :wave:
 
 Este repositório é a parte prática de um projeto universitário. 
