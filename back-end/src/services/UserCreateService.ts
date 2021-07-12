@@ -1,11 +1,10 @@
-import { getCustomRepository, Connection, getConnection, getConnectionOptions, getRepository} from "typeorm"
+import { getCustomRepository} from "typeorm"
 import {IUserRequest} from "../interfaces/IUserRequest"
 import { UserRepository } from "../repositories/UserRepository"
 import {hash} from "bcryptjs"
-import { User } from "../entities/User"
 
 export class CreateUserService{
-    async execute({name,last_name,cpf,email,password,birth_date}:IUserRequest):Promise<User>{
+    async execute({name,last_name,cpf,email,password,birth_date}:IUserRequest){
 
         const userRepository = getCustomRepository(UserRepository)
 
@@ -18,7 +17,7 @@ export class CreateUserService{
         })
 
         if(userCpfAlreadyExists || userEmailAlreadyExists){
-            return throw new Error("The user already exists")
+            throw new Error("The user already exists")
         }
 
         const encryptPassword = await hash(password,8)

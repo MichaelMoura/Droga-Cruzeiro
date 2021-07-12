@@ -10,7 +10,7 @@ const router = Router();
 const userCreateController = new UserCreateController();
 
 router.get("/", (request:Request,response:Response)=>{
-    response.send(__dirname);
+    response.json({message:"oi",person:"michael"})
 })
 
 //Registrar um usuário
