@@ -44,7 +44,7 @@ export class CreateUsers1625521328960 implements MigrationInterface {
                         {
                             name:"password",
                             type:"varchar",
-                            length:"20"
+                            length:"60"
                         },
                         {
                             name:"created_at",
@@ -64,7 +64,7 @@ export class CreateUsers1625521328960 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("User")
+        await queryRunner.dropTable("users")
     }
 
 }

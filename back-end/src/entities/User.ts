@@ -22,7 +22,7 @@ export class User {
     @Column({type:"varchar",length:45})
     email:string
 
-    @Column({type:"varchar", length:20})
+    @Column({type:"varchar", length:60})
     password:string
 
     @CreateDateColumn()

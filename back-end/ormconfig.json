@@ -5,8 +5,8 @@
    "database":"droga-cruzeiro",
    "username":"root",
    "password":"",
-   "entities": ["src/entities/**/*.ts"],
-   "migrations": ["src/database/migrations/**/*.ts"],
+   "entities": ["src/entities/*.ts"],
+   "migrations": ["src/database/migrations/*.ts"],
    "subscribers": ["src/subscriber/*.ts"],
    "cli": {
       "entitiesDir": "src/entities",
