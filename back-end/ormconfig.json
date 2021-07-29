@@ -7,7 +7,7 @@
    "password":"",
    "entities": ["src/entities/*.ts"],
    "migrations": ["src/database/migrations/*.ts"],
-   "subscribers": ["src/subscriber/*.ts"],
+   "subscribers": ["src/subscriber/*1.ts"],
    "cli": {
       "entitiesDir": "src/entities",
       "migrationsDir": "src/database/migrations",

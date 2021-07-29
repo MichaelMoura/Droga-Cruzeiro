@@ -8,10 +8,11 @@ Steps to run this project:
 
 ## what is missing to implement?
 
-[] - To show the error system
-[] - To make shopping cart system
-[] - to make the deliver system
-[] - To make the payment system
-[] - To make the order issue system
+[] - Show the error system
+[] - Make shopping cart system
+[] - Make the deliver system
+[] - Make the payment system
+[] - Make the order issue system
+[] - implement the 3D card payment 
 
 Apresentar os error de forma dinâmica nos controllers ou nas routers
