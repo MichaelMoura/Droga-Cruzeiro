@@ -6,7 +6,29 @@ export class CreatePaymentCard1627685676445 implements MigrationInterface {
         await queryRunner.createTable(
             new Table(
                 {
-                    name:"PaymentCard"
+                    name:"PaymentCard",
+                    columns:[
+                        {
+                            name:"nome do titular"
+                            type:"varchar"
+                        },
+                        {
+                            name:"cpf do titular"
+                            type:"varchar"
+                        },
+                        {
+                            name:"numero"
+                            type:"varchar"
+                        },
+                        {
+                            name:"data de vencimento"
+                            type:"date"
+                        },
+                        {
+                            name:"cvv"
+                            type:"varchar"
+                        },
+                    ]
                 }
             )
         )
