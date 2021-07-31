@@ -1,5 +1,6 @@
-import {Column, Entity, PrimaryColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryColumn} from "typeorm";
 import { v4 as uuid } from "uuid";
+import { User } from "./User";
 
 @Entity("delivery")
 export class Delivery {
@@ -8,6 +9,10 @@ export class Delivery {
 
     @Column()
     user_id:string;
+
+    @JoinColumn({name:"user_id"})
+    @ManyToOne(()=>User)
+    user:User;
 
     @Column()
     address:string;
