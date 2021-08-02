@@ -27,22 +27,22 @@ export class CreatePaymentCard1627685676445 implements MigrationInterface {
                         {
                             name:"cardholder_cpf",
                             type:"varchar",
-                            length:"28"
+                            length:"60"
                         },
                         {
                             name:"number",
                             type:"varchar",
-                            length:"32"
+                            length:"64"
                         },
                         {
                             name:"expiration_date",
-                            length:"20",
+                            length:"52",
                             type:"varchar"
                         },
                         {
                             name:"cvv",
                             type:"varchar",
-                            length:"6",
+                            length:"38",
                         },
                         {
                             name:'card_banner',

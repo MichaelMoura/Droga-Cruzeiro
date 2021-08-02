@@ -10,4 +10,7 @@ export interface IPaymentRequest{
     cvv:string;
 
     card_banner:string
+    
+    //esse atributo e temporario, pois ele vai ser passado no header
+    user_id:string
 }

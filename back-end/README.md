@@ -14,5 +14,6 @@ Steps to run this project:
 [] - Make the payment system
 [] - Make the order issue system
 [] - implement the 3D card payment 
+[] - implements the verification if there is a credit card equal to the typed one 
 
 Apresentar os error de forma dinâmica nos controllers ou nas routers
