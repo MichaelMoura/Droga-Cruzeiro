@@ -37,7 +37,7 @@ router.post("/product", createProductController.handle)
 //aqui ele vai verificar se o  meu usuário possui um endereco já cadastrado já cadastrado
 //sendo necessário pegar o id do usuário. 
 router.post("/payment",createPaymentCardController.execute)
-router.get("/payment/:id",)
+router.get("/payment",getPaymentCardController.handle)
 
 //aqui vai cadastrar
 router.post("/delivery", createShippingAddressController.handle)

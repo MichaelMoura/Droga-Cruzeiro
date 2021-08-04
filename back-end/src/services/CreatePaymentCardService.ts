@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm";
-import { Encrypt } from "../utils/cryptography/Encryp";
+import { Encrypt } from "../utils/cryptography/Cryptography";
 import { IPaymentRequest } from "../interfaces/IPaymentCardRequest";
 import { PaymentCardRepository } from "../repositories/PaymentCardRepository";
 

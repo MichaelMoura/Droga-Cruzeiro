@@ -1,4 +1,4 @@
-import crypto, {Hash} from "crypto"
+import crypto from "crypto"
 
 
 export class Encrypt{
@@ -13,5 +13,18 @@ export class Encrypt{
             
             return `${iv.toString("hex")}:${dataEncrypted}`
         
+    }
+
+    decrypt(value:string){
+        const alg = `${process.env.NODE_ENV_CRYPTO_ALG}`
+        const key = `${process.env.NODE_ENV_CRYPTO_KEY}`
+        const [iv,encryptText] = value.split(":")
+        const bufferIv = Buffer.from(iv,"hex")
+        const content = Buffer.from(encryptText,"hex")
+        const decipher = crypto.createDecipheriv(alg,Buffer.from(key),bufferIv)
+        let valor = decipher.update(content)
+        //valor +=  decipher.final('hex');
+        console.log(valor.toString("hex"))
+        return valor.toString("utf8")
     }
 }
