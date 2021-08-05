@@ -9,22 +9,20 @@ export class Encrypt{
             const key = `${process.env.NODE_ENV_CRYPTO_KEY}`
             const alg = `${process.env.NODE_ENV_CRYPTO_ALG}`;
 
-            const dataEncrypted = crypto.createCipheriv(alg,key,iv).update(value,"utf8","hex")
+            const dataEncrypted = crypto.createCipheriv("aes-256-gcm",key,iv).update(value,"utf8")
             
-            return `${iv.toString("hex")}:${dataEncrypted}`
+            return `${iv.toString("hex")}:${dataEncrypted.toString("hex")}`
         
     }
 
-    decrypt(value:string){
-        const alg = `${process.env.NODE_ENV_CRYPTO_ALG}`
+    decrypt(text:string){
         const key = `${process.env.NODE_ENV_CRYPTO_KEY}`
-        const [iv,encryptText] = value.split(":")
-        const bufferIv = Buffer.from(iv,"hex")
-        const content = Buffer.from(encryptText,"hex")
-        const decipher = crypto.createDecipheriv(alg,Buffer.from(key),bufferIv)
-        let valor = decipher.update(content)
-        //valor +=  decipher.final('hex');
-        console.log(valor.toString("hex"))
-        return valor.toString("utf8")
+        let [ivText,textI] = text.split(':');
+        let iv = Buffer.from(ivText, 'hex');
+        let encryptedText = Buffer.from(textI, 'hex');
+        let decipher = crypto.createDecipheriv('aes-256-gcm', Buffer.from(key), iv);
+        let decrypted = decipher.update(encryptedText,"hex","utf8");
+        let plainText = Buffer.from([decrypted,decipher.final()])
+        return plainText;
     }
 }

@@ -13,12 +13,17 @@ export class GetPaymentcardService{
                 user_id:id
             }
         })
-//
-        const userCard = userCards.map(card =>new Encrypt().decrypt(card.cvv))
+
+        let cvv = {};
+        for(let userCard of userCards){
+            const e = new Encrypt().decrypt(userCard.cvv)
+            cvv = e;
+            
+        }
         
         
         const object = {
-            cvv:userCard
+            cvv:cvv
         }
 
         return object
