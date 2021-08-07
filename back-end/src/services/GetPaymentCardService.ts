@@ -14,19 +14,24 @@ export class GetPaymentcardService{
             }
         })
 
-        let cvv = {};
-        for(let userCard of userCards){
-            const e = new Encrypt().decrypt(userCard.cvv)
-            cvv = e;
-            
-        }
-        
-        
-        const object = {
-            cvv:cvv
-        }
+        const cvv = userCards.map(userCard=>new Encrypt().decrypt(userCard.cvv))
 
-        return object
+        
+        let cardsInfos = [{}]
+        for(let i=0;i<cvv.length;i++){
+            const obj  = {
+                id:userCards[i].id,       
+                userId:userCards[i].user_id,       
+                cvv:cvv[i],
+                cardBanner:userCards[i].card_banner,       
+            }
+
+            cardsInfos.push(obj)
+        }
+        
+       
+
+        return cardsInfos
 
     }
 }
