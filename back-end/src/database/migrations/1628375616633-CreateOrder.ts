@@ -7,13 +7,36 @@ export class CreateOrder1628375616633 implements MigrationInterface {
             name:"order",
             columns:[
                 {
-                    name:""
+                    name:"id",
+                    type:"varchar",
+                    isPrimary:true
+                },
+                {
+                    name:"user_id",
+                    type:"varchar"
+                },
+                {
+                    name:"deliveryTo",
+                    type:"varchar"
+                },
+                {
+                    name:"paymentId",
+                    type:"varchar"
+                },
+                {
+                    name:"shoppingCart",
+                    type:"varchar"
+                },
+                {
+                    name:"totalValue",
+                    type:"float"
                 }
             ]
         }))
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable("order")
     }
 
 }
