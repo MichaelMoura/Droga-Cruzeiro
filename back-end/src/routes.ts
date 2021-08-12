@@ -4,6 +4,7 @@ import { AuthenticateUserController } from "./controllers/AuthenticateUserContro
 import { CreatePaymentCardController } from "./controllers/CreatePaymentCardController";
 import { CreateProductController } from "./controllers/CreateProductController";
 import { CreateShippingAddressController } from "./controllers/CreateShippingAddressController";
+import { CreateShoppingCartController } from "./controllers/CreateShoppingCartController";
 import { CreateShoppingSessionController } from "./controllers/CreateShoppingSessionController";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { GetPaymentCardController } from "./controllers/getPaymentCardController";
@@ -21,6 +22,7 @@ const createPaymentCardController =  new CreatePaymentCardController()
 
 const getPaymentCardController = new GetPaymentCardController()
 const createShoppingSessionController = new CreateShoppingSessionController()
+const createShoppingCartController = new CreateShoppingCartController()
 
 //Home da pagina
 router.get("/", (request:Request,response:Response)=>{
@@ -46,5 +48,7 @@ router.post("/delivery", createShippingAddressController.handle)
 
 //Aqui terá a sessão do carrinho e aqui que ele vai nos ajudar a diferenciar as futuras compras
 router.post("/cart",createShoppingSessionController.handle)
+
+router.post("/shoppingcart", createShoppingCartController.handle)
 
 export {router}

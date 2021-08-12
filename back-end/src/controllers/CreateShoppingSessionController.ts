@@ -7,7 +7,7 @@ export class CreateShoppingSessionController{
 
         const createShoppingSessionService =  new CreateShoppingSessionService()
 
-        const shoppingSession = createShoppingSessionService.execute({user_id})
+        const shoppingSession = await createShoppingSessionService.execute({user_id})
 
         return response.json(shoppingSession)
     }

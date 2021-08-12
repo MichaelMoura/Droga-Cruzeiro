@@ -1,4 +1,4 @@
-import {Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryColumn, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn} from "typeorm";
 import { User } from "./User";
 import { v4 as uuid } from "uuid";
 
@@ -11,7 +11,7 @@ export class ShoppingSession{
     user_id:string;
 
     @JoinColumn({name:"user_id"})
-    @OneToOne(()=>User)
+    @ManyToOne(()=>User)
     userId:User;
 
     @CreateDateColumn()

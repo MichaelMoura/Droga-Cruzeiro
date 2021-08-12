@@ -7,10 +7,10 @@ export class CreateShoppingSessionService{
     async execute({user_id}:IShoppingSessionRequest){
         const shoppingSessionRepository = getCustomRepository(ShoppingSessionRepository)
 
-        const ShoppingSession = shoppingSessionRepository.create({user_id})
+        const shoppingSession = shoppingSessionRepository.create({user_id})
 
-        await shoppingSessionRepository.save(ShoppingSession)
+        await shoppingSessionRepository.save(shoppingSession)
 
-        return ShoppingSession
+        return shoppingSession
     }
 }
