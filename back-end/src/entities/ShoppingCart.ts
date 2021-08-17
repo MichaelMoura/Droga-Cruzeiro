@@ -1,6 +1,7 @@
 import {Entity, Column, UpdateDateColumn, CreateDateColumn, JoinColumn, ManyToOne,PrimaryColumn} from "typeorm";
 import { Product } from "./Product";
 import { ShoppingSession } from "./ShoppingSession";
+import { v4 as uuid } from "uuid";
 
 @Entity("shopping_cart")
 export class ShoppingCart {
@@ -19,6 +20,7 @@ export class ShoppingCart {
 
     @JoinColumn({name:"product_id"})
     @ManyToOne(()=>Product)
+    productId:Product;
 
     @Column()
     quantity:number
@@ -28,4 +30,10 @@ export class ShoppingCart {
 
     @UpdateDateColumn()
     updated_at:Date;
+
+    constructor(){
+        if(!this.id){
+            this.id = uuid()
+        }
+    }
 }

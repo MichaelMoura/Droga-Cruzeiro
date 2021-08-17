@@ -7,8 +7,8 @@ export class CreateShoppingCartController{
 
         const createShoppingCartService = new CreateShoppingCartService()
 
-        const shoppingCart = createShoppingCartService.execute({product_id,quantity,session_id})
+        const shoppingCart = await createShoppingCartService.execute({product_id,quantity,session_id})
 
-        return shoppingCart
+        return response.json(shoppingCart)
     }
 }

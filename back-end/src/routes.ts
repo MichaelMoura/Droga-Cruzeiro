@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {Request, Response} from "express"
 import { AuthenticateUserController } from "./controllers/AuthenticateUserController";
+import { CreateOrderController } from "./controllers/CreateOrderController";
 import { CreatePaymentCardController } from "./controllers/CreatePaymentCardController";
 import { CreateProductController } from "./controllers/CreateProductController";
 import { CreateShippingAddressController } from "./controllers/CreateShippingAddressController";
@@ -23,6 +24,7 @@ const createPaymentCardController =  new CreatePaymentCardController()
 const getPaymentCardController = new GetPaymentCardController()
 const createShoppingSessionController = new CreateShoppingSessionController()
 const createShoppingCartController = new CreateShoppingCartController()
+const createOrderController = new CreateOrderController() 
 
 //Home da pagina
 router.get("/", (request:Request,response:Response)=>{
@@ -50,5 +52,7 @@ router.post("/delivery", createShippingAddressController.handle)
 router.post("/cart",createShoppingSessionController.handle)
 
 router.post("/shoppingcart", createShoppingCartController.handle)
+
+router.post("/order", createOrderController.handle)
 
 export {router}
